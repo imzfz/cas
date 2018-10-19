@@ -147,8 +147,7 @@ task testRedis(type: Test) {
 test {
     include "**/*Tests.*"
     useJUnitPlatform {
-        setExcludeTags Set.of(
-                "org.apereo.cas.category.CassandraCategory",
+        excludeTags "org.apereo.cas.category.CassandraCategory",
                 "org.apereo.cas.category.CosmosDbCategory",
                 "org.apereo.cas.category.CouchbaseCategory",
                 "org.apereo.cas.category.DynamoDbCategory",
@@ -167,7 +166,7 @@ test {
                 "org.apereo.cas.category.RedisCategory",
                 "org.apereo.cas.category.RadiusCategory",
                 "org.apereo.cas.category.AmazonWebServicesS3Category",
-                "org.apereo.cas.category.RestfulApiCategory")
+                "org.apereo.cas.category.RestfulApiCategory"
     }
     enabled = "SIMPLE".equalsIgnoreCase(rootProject.testCategoryType) && !Boolean.getBoolean("skipTests")
 }
